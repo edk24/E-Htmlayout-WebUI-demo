@@ -1,0 +1,79 @@
+<style>
+	#user_form {
+		display:none;
+		height:100%;
+	}
+	#user_index {
+		display:block;
+		height:100%;
+	}
+	#user_add {
+		click!: $1(#user_index)::display = "none",
+				$1(#user_form)::display = "block",
+				$1(#user_form_name):value = "",
+				$1(#user_form_password):value = "",
+				user("add");
+	}
+	#user_return {
+		click!: $1(#user_index)::display = "block",
+				$1(#user_form)::display = "none";
+	}
+	#user_btn_post {
+		click!: user();
+	}
+</style>
+<div id="user_index">
+<form action="" class="form-horizontal">
+	<div class="form-group width-auto">
+		<button class="btn" #user_add>添加用户</button>
+	</div>
+</form>
+<widget type="select" class="table">
+	<table cellspacing="0" >
+		<thead>
+			<tr>
+				<th>Uid</th>
+				<th>用户名称</th>
+				<th>职务</th>
+				<th>创建日期</th>
+				<th>启用</th>
+				<th>控制</th>
+			</tr>
+		</thead>
+		<tbody #user-list>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</widget>
+</div>
+
+<div id="user_form" submit="add" uid="0">
+	<form action="" class="form-vertical">
+		<div class="form-group width-auto" style="margin-bottom:10px">
+			<label for="" class="input-label">用户名称</label>
+			<input type="text" style="width:*" #user_form_name>
+		</div>
+		<div class="form-group width-auto" style="margin-bottom:10px">
+			<label for="" class="input-label">登录密码</label>
+			<input type="password" style="width:*" #user_form_password>
+		</div>
+		<div class="form-group width-auto" style="margin-bottom:50px">
+			<label for="" class="input-label">职务</label>
+			<select size=1  class="width-auto" #user_form_power>
+				<option value="1">业务员</option>
+				<option value="2">管理员</option>
+			</select>
+		</div>
+		<div class="form-group width-auto" style="margin-bottom:10px">
+			<button class="btn btn-lg" #user_return>返回</button>
+			<button class="btn btn-lg" style="margin-left:*" style='click!:user("post");'>保存</button>
+		</div>
+	</form>
+</div>

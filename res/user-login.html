@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+	<style>
+		@import url(main.css);
+		.login-all {
+			width:100%;
+			height:100%;
+			flow:vertical;
+			background: #fff
+		}
+		.login-head {
+			width:*;
+			height:64px;
+			background: #336699;
+			vertical-align:middle
+		}
+		.login-foot {
+			width:*;
+			height:24px;
+			background: #ebebeb;
+			vertical-align:middle;
+			padding:0 10px;
+		}
+		.login-main {
+			width:100%;
+			height:*;
+			flow:horizontal;
+			horizontal-align:center;
+		}
+		.login-ul {
+			width:72%;
+			height:*;
+			margin-top:10px;
+			margin-bottom:10px;
+			background: red;
+		}
+		.login-ul li {
+			width:*;
+			height:28px;
+		}
+		#login_post {
+			click!: user = $1(#login_user):value,
+					pwd  = $1(#login_pwd):value,
+					save = $1(#login_save):value,
+					alert("用户名: "+user+" | 密码:"+ pwd+" | 记住密码:"+ save);
+		}
+	</style>
+</head>
+<body>
+
+	<div class="login-all">
+		<div class="login-head">
+			<h3 class="text-center" style='color:#FF9933'>订单管理系统</h3>
+		</div>
+		<div class="login-main">
+			<form action="" class="form-vertical" style="margin:8px * 0 *; width:270px;  padding-right:20px;">
+				<div class="form-group" >
+					<label for="" class="input-label">用户名称</label>
+					<input type="text" style="width:*" #login_user novalue="Username">
+				</div>
+				<div class="form-group" >
+					<label for="" class="input-label">登录密码</label>
+					<input type="password" style="width:*" #login_pwd novalue="Password">
+				</div>
+				<div class="form-group" style="horizontal-align: right">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="" style="click!:setip()">修改服务器地址</a>
+					<button type="checkbox" style="margin-left:*;" #login_save>记住密码</button>
+				</div>
+				<div class="form-group" style="padding-left:24px; width:*">
+					<button class="btn btn-block" style="width:*" #login_post>登 录</button>
+				</div>
+			</form>
+		</div>
+		<div class="login-foot">
+			在线技术客服 <a target="_blank" href="" style="click!:open()" ><img style="vertical-align: middle" src="data:image/png;base64,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" alt="">1421926943</a>
+		</div>
+	</div>
+
+</body>
+</hrml>

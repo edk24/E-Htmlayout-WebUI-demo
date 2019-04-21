@@ -1,0 +1,47 @@
+<style>
+	#setting-post {
+		click!:setting("base");
+	}
+</style>
+<div class="panel" #setting-system>
+	<div class="panel-title">系统设置</div>
+	<div class="panel-body">
+		<form action="" class="form-vertical">
+			<div class="form-group width-auto">
+				<label for="" class="input-label">回款状态</label>
+				<input type="text" style="width:*" #hueikuan>
+				<label for="" class="input-label text-help" style="width:200px; text-align:left">以"|"分割; 强烈建议预先定义!</label>
+			</div>
+			<br />
+			<div class="form-group width-auto">
+				<label for="" class="input-label">付款方式</label>
+				<input type="text" style="width:*" #fukuan>
+				<label for="" class="input-label text-help" style="width:200px; text-align:left">以"|"分割; 强烈建议预先定义!</label>
+			</div>
+			<br />
+			<div class="form-group width-auto">
+				<label for="" class="input-label">其他</label>
+				<input type="text"  style="width:*" #wuliou>
+				<label for="" class="input-label text-help" style="width:200px; text-align:left">系统默认+自定义, 同样"|"分割</label>
+			</div>
+			<br />
+			<div class="form-group width-auto">
+				<button class="btn" #setting-post>保存以上设置</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="panel">
+	<div class="panel-title">个人设置</div>
+	<div class="panel-body">
+		<form action="" class="form-horizontal">
+			<div class="form-group">
+				<label for="" class="input-label">新密码</label>
+				<input type="password" #pwd>
+				<button class="btn" style='click!:user("savepwd", $1(#pwd):value)'>确定</button>
+			</div>
+		</form>
+	</div>
+</div>
+

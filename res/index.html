@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+	
+	<style>
+	@import url(./main.css);
+	body {
+		assigned!: self.start-timer(72);
+		timer!: self.stop-timer(), initialize();
+	}
+	</style>
+</head>
+<body>
+<div .window-main>
+<div id="divAll">
+	<div id="divHead">
+		<div id="window-title">用这个WbeUI做的一个小项目, 源码不就放上了. 送上界面</div>
+		<div class="control-btn">
+			<div class="min"></div>
+			<div class="max"></div>
+			<div class="restore" style="display:none;"></div>
+			<div class="close"></div>
+		</div>
+	</div>
+	<div id="divMain">
+		<div .nav>
+			<ul .nav-btns>
+				<li .nav-tab check>订单</li>
+				<li .nav-tab>产品</li>
+				<li .nav-tab #model_user>用户</li>
+				<li .nav-tab>设置</li>
+			</ul>
+			<ul .nav-area>
+				<li .nav-page art="订单" open=true>
+					<div class="main">
+						<include src="page/order.html" />
+					</div>
+				</li>
+				<li class="nav-page" art="产品">
+					<div class="main">
+						<include src="page/goods.html" />
+					</div>
+				</li>
+				<li class="nav-page" art="用户">
+					<div class="main">
+						<include src="page/user.html" />
+					</div>
+				</li>
+				<li class="nav-page" art="设置">
+					<div class="main">
+						<include src="page/setting.html" />
+					</div>
+				</li>
+			</ul>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+
+</body>
+</hrml>

@@ -1,0 +1,135 @@
+<style>
+	#order_page_home {
+		click!:order("page","home");
+	}
+	#order_page_last {
+		click!:order("page","last");
+	}
+	#order_page_prev {
+		click!:order("page","prev");
+	}
+	#order_page_next {
+		click!:order("page","next");
+	}
+	#order_search {
+		click!: 
+				date_start = $1(#date_start):value,
+				date_end = $1(#date_end):value,
+				state = $1(#where_state):value,
+				money = $1(#where_money):value,
+				fahuo = $1(#where_fahuo):value,
+				bank = $1(#where_bank):value,
+				key = $1(#where_key):value,
+				ohter = $1(#where_ohter):value,
+				user = $1(#where_user):value,
+				order("search", date_start, date_end, state, money, fahuo, bank, key, ohter, user);
+	}
+</style>
+
+<div class="tab_box">
+	<div class="tab_btns">
+		<div class="tab" check>订单</div>
+		<div class="tab" #check>审核修改</div>
+		<div class="tab" #express>物流跟踪</div>
+	</div>
+	<div class="page_area">
+		<div class="page" name="订单" #order_xx>
+			<form action="" class="form-horizontal">
+				<div class="form-group" style="width:auto">
+					<button class="btn" style='click!:order("add")'>创建订单</button>
+					<button class="btn" #excel style='click!:order("excel")'>导出报表</button>
+				</div>
+			</form>
+			<form action="" class="form-horizontal">
+				<div class="form-group" style="width:360px">
+					<label for="" class="input-label" style="width:72px">时间</label>
+					<input type="date" class="input-control" #date_start value="now" style="width:120px">
+					<input type="date" class="input-control" #date_end value="now" style="width:120px">
+				</div>
+				<div class="form-group" id="guol"></div>
+				<div class="form-group" style="width:360px">
+					<input type="text" class="input-control" id="where_key" style="width:200px" novalue="客户/电话/地址/备注">
+					<button class="btn" id="order_search">搜索</button>
+				</div>
+			</form>
+			<widget type="select" class="table">
+				<table cellspacing="0">
+					<thead>
+						<tr>
+							<th width="110px">订单编号</th>
+							<th>订单状态</th>
+							<th>业务员</th>
+							<th width="90px">下单时间</th>
+							<th width="90px">承运公司</th>
+							<th>客户/电话</th>
+							<th>产品</th>
+							<th>总金额</th>
+							<th>付款方式</th>
+							<th>已收/代收</th>
+							<th>回款状态</th>
+							<th>发货方式</th>
+							<th>其他</th>
+							<th>备注</th>
+							<th width="140px">管理</th>
+						</tr>
+					</thead>
+					<tbody #order-list>
+						
+					</tbody>
+				</table>
+			</widget>
+			<form action="" class="form-horizontal">
+				<div class="form-group">
+					<label for="" class="input-label" style="width:*" #order_page_info></label>
+					<button class="btn btn-success" #order_page_home>首页</button>
+					<button class="btn btn-success" #order_page_prev>上一页</button>
+					<button class="btn btn-success" #order_page_next>下一页</button>
+					<button class="btn btn-success" #order_page_last>尾页</button>
+				</div>
+			</form>
+		</div>
+		<div class="page" name="审核修改" #order_xxx>
+			<form action="" class="form-horizontal">
+				<button class="btn" style='click!:order("sh_refresh")'>刷新</button>
+			</form>
+			<widget type="select" class="table">
+				<table cellspacing="0">
+					<thead>
+						<tr>
+							<th width="110px">订单编号</th>
+							<th>提交修改</th>
+							<th width="90px">提交时间</th>
+							<th>客户/电话</th>
+							<th>产品</th>
+							<th>总金额</th>
+							<th>付款方式</th>
+							<th>已收/代收</th>
+							<th>发货方式</th>
+							<th>快递单号</th>
+							<th>物流状态</th>
+							<th>备注</th>
+							<th width="100px">管理</th>
+						</tr>
+					</thead>
+					<tbody #sh-list>
+						
+					</tbody>
+				</table>
+			</widget>
+		</div>
+		<div class="page" name="物流跟踪" #express_panel>
+			<form action="" class="form-horizontal">
+				<div class="form-group">
+					<label for="" class="input-label">快递单号</label>
+					<input type="text" class="input-control" #express_id novalue="请输入快递单号">
+					<button class="btn" style='click!:express($1(#express_id):value)'>查询</button>
+				</div>
+				<div class="form-group">
+					<label for="" class="input-label" style="width:200px" #express_com>承运公司 -> </label>
+				</div>
+			</form>
+			<ul class="new" #express_info>
+			</ul>
+		</div>
+	</div>
+</div>
